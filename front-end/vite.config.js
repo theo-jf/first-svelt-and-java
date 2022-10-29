@@ -12,7 +12,8 @@ dns.setDefaultResultOrder('verbatim')
 
 export default defineConfig({
   // Makes localhost run on port 5000
+  plugins: [svelte()],
   server: {
     port: 5000
-  }
-})
+  } 
+});
