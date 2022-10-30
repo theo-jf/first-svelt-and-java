@@ -14,6 +14,11 @@ export default defineConfig({
   // Makes localhost run on port 5000
   plugins: [svelte()],
   server: {
-    port: 5000
-  } 
+    port: 3000,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080/'
+      }
+    }
+  }
 });
