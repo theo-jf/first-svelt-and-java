@@ -5,9 +5,14 @@
     import axios from 'axios';
 
     const removeRock = async () => {
-        let response = await axios.delete(`api/server/remove/${i}`);
-        console.log(response.data)
-        fetchRocks();
+        new Audio('./[YT2mp3.info] - POP - Sound Effect (320kbps).mp3').play();
+        try {
+            let response = await axios.delete(`api/server/remove/${i}`);
+            console.log(response.data)
+            fetchRocks();
+        } catch (error) {
+            console.log(error)
+        }
     }
 </script>
 

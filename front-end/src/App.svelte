@@ -1,17 +1,17 @@
 <script>
   import axios from 'axios';
 
-  import { useEffect } from './lib/hooks';
-
   import RockGeneratorButton from "./lib/RockGeneratorButton.svelte";
   import RockList from "./lib/RockList.svelte";
+
+	import { useEffect } from './lib/hooks.js';
 
   let response = 'Press the button!';
   let rocks = 0;
 
   useEffect(() => {
     fetchRocks();
-  }, () => [])
+  }, () => [rocks]);
 
   const fetchRocks = async () => {
     try {
