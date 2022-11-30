@@ -41,3 +41,12 @@
   display: inline;
   text-align: left;
 }
+
+.rock {
+  display: inline-block;
+  padding: 30px;
+}
+
+.DWAYNE {
+    width: 100px;
+}

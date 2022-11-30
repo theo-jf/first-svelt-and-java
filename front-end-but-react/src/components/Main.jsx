@@ -1,25 +1,27 @@
 import axios from 'axios';
 
-import { useEffect } from 'react';
+import RockGeneratorButton from './RockGeneratorButton';
+import RockList from './RockList';
+
+import { useEffect, useState } from 'react';
 
 export default function Main() {
-    
-    let response = 'Press the button!';
-    let rocks = 0;
+
+    const [rocks, setRocks] = useState(0);
+    const [response, setResponse] = useState('Press the button!');
 
     useEffect(() => {
         fetchRocks();
     }, [rocks]);
 
-    
     const fetchRocks = async () => {
         try {
           let serverResponse = await axios.get('api/server/fetch');
-          rocks = serverResponse.data;
-          response = `${rocks} rocks`;
+          setRocks(serverResponse.data);
+          setResponse(`${rocks} rocks`);
         } catch (error) {
           console.log(error);
-          response = `The server doesn't appear to be connected ...`
+          setResponse(`The server doesn't appear to be connected ...`);
         }
       }
 
@@ -35,7 +37,15 @@ export default function Main() {
     };
 
     return (
-        <p>Hey!</p>
+        <main>
+            <div className="card">
+                <RockGeneratorButton response={response} addRock={addRock} />
+            </div>
+
+            <div className="rocks">
+                <RockList rocks={rocks} fetchRocks={fetchRocks}/>
+            </div>
+        </main>
     );
 
 }
