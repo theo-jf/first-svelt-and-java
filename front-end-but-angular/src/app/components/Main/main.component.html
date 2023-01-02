@@ -1,9 +1,9 @@
 <main>
     <div className="card">
-        <RockGeneratorButton response={response} addRock={addRock} />
+        <rock-generator-button [response]={response} addRock={addRock}></rock-generator-button>
     </div>
 
     <div className="rocks">
-        <RockList rocks={rocks} fetchRocks={fetchRocks}/>
+        <rock-list rocks={rocks} fetchRocks={fetchRocks}></rock-list>
     </div>
 </main>
